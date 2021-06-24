@@ -1,0 +1,29 @@
+ALGORITHM inser
+VAR
+    n:INTEGER.
+    array tab[n];
+BEGIN
+    PROCEDURE insertionSort(array arr[],INTEGER n)
+    VAR
+        INTEGER i, key, j;
+    BEGIN
+        FOR i FROM 1 TO n-1 STEP step  DO
+             key = arr[i];
+            j = i - 1;
+        END_FOR
+         /* Move elements of arr[0..i-1], that are
+        greater than key, to one position ahead
+        of their current position */
+        WHILE (j >= 0 && arr[j] > key) DO
+               arr[j + 1] = arr[j];
+            j = j - 1;
+        END_WHILE
+        arr[j + 1] = key;
+    END
+
+    read(n);
+    // remplir tab[n]
+     ...
+     insertionSort(tab,n);
+     write("sorted tab"+tab);
+END
